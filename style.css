@@ -1,0 +1,95 @@
+body {
+  background-color: black;
+}
+.body-wrapper {
+  width: 700px;
+  margin: 50px auto 0 auto;
+}
+.control-container {
+  float: left;
+  margin-right: 50px;
+  border: 1px solid grey;
+}
+#start {
+  padding: 15px 25px;
+  margin-bottom: 20px;
+  font-size: 25px;
+  display: block;
+}
+#timer {
+  display: block;
+  font-size: 25px;
+  margin: 0 25px;
+}
+#checks {
+  color: green;
+  padding: 5px;
+  width: 100px;
+}
+.container {
+  float: left;
+  margin: 0 auto;
+  padding: 0;
+  width: 405px;
+  height: 400px;
+}
+.main-col {
+  width: 100px;
+  height: 400px;
+}
+.flip-container {
+  width: 100px;
+  height: 100px;
+}
+.flipper {
+  width: 100px;
+  height: 100px;
+}
+.front {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 45px;
+  border: 1px dotted grey;
+}
+/* entire container, keeps perspective */
+.flip-container {
+  perspective: 1000;
+  transition: 0.6s;
+}
+/* flip the pane when hovered */
+.flip-container,
+.front,
+.back {
+  width: 100px;
+  height: 100px;
+  transition: 0.6s;
+}
+/* flip speed goes here */
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+/* hide back of pane during swap */
+.front,
+.back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.6s;
+}
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+}
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(180deg);
+  background-size: cover;
+  transition: 1.6s;
+}
